@@ -1,0 +1,71 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Móvil de Monitoreo</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Sistema Móvil de Monitoreo</h1>
+    </header>
+
+    <div class="main-container">
+        <!-- Video en vivo -->
+        <div class="video-section">
+            <h2>Video en Vivo</h2>
+            <video id="liveVideo" autoplay muted loop>
+                <source src="/static/imagen/bouncing.mp4" type="video/mp4">
+                Tu navegador no soporta el video HTML5.
+            </video>
+        </div>
+
+        <!-- Sensores con imágenes y valores -->
+        <div class="sensor-grid">
+            <div class="sensor-card">
+                <img src="/static/imagen/calidad_aire.png" alt="Calidad de Aire" class="sensor-img">
+                <h3>Calidad de Aire</h3>
+                <p id="sensor1-value">Valor: 0</p>
+            </div>
+            <div class="sensor-card">
+                <img src="/static/imagen/humedad.png" alt="Humedad" class="sensor-img">
+                <h3>Humedad</h3>
+                <p id="sensor2-value">Valor: 0</p>
+            </div>
+            <div class="sensor-card">
+                <img src="/static/imagen/temperatura.png" alt="Temperatura" class="sensor-img">
+                <h3>Temperatura</h3>
+                <p id="sensor3-value">Valor: 0</p>
+            </div>
+            <div class="sensor-card">
+                <img src="/static/imagen/ultrasonico.png" alt="Ultrasónico" class="sensor-img">
+                <h3>Ultrasónico</h3>
+                <p id="sensor4-value">Valor: 0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botones en la esquina inferior derecha -->
+    <div class="btn-container">
+        <a href="/" class="btn-info">Inicio</a>
+        <a href="/grafico" class="btn-info">Ver Gráficas en Tiempo Real</a>
+    </div>
+
+    <!-- Script para simular datos en tiempo real -->
+    <script>
+        function updateSensorValues() {
+            $('#sensor1-value').text("Valor: " + Math.floor(Math.random() * 100));
+            $('#sensor2-value').text("Valor: " + Math.floor(Math.random() * 100));
+            $('#sensor3-value').text("Valor: " + Math.floor(Math.random() * 100));
+            $('#sensor4-value').text("Valor: " + Math.floor(Math.random() * 100));
+        }
+        setInterval(updateSensorValues, 1000); // Actualiza cada segundo
+    </script>
+</body>
+</html>
